@@ -1,0 +1,31 @@
+{
+    "playlists": [
+        {
+            "name": "Provider Name",
+            "type": "link",
+            "uri": "URL TO YOUR HLS PLAYLIST",
+            "localCopy": "./iptv.m3u8",
+            "isUseLocalAceStreamMediaProxy": false,
+            "isEnabled": true
+        }
+    ],
+    "epg": {
+        "tvGuideUrl": [
+            "URL TO YOUR EPG SOURCE"
+        ],
+        "historyDays": 2,
+        "filename": "./epg.xml.gz",
+        "updateAt": "0 0 8,23 * * *",
+        "isProgramStartTimeCanBeAtMidnight": true,
+        "cacheDir": "./epg-cache",
+        "isEpgMatchEnabled": true,
+        "epgUrlForClient": "/epg.xml.gz"
+    },
+    "isCacheInMemory": false,
+    "downloadSlotsAvailable": 4,
+    "maxDownloadSlotsAvailable": 8,
+    "grouping": {
+        "isOverwriteExistingGroups": true,
+        "isGroupRename": true
+    }
+}
