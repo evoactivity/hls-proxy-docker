@@ -8,7 +8,7 @@ This is a very simple docker, it doesn't do anything more than download HLS Prox
 First `git clone` this repository, create a `local.json` file in the `data` directory to add your HLS sources and EPG data. 
 `cd` to the repo directory and run
 ```bash
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 The proxy will be available on http://localhost:3080 or http://YOUR_WEB_SERVER:3080
