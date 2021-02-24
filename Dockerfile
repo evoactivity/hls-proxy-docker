@@ -1,8 +1,8 @@
 FROM amd64/alpine:latest
 EXPOSE 8085
 RUN apk update
-RUN apk install -y wget
-RUN apk install -y unzip
+RUN apk add wget
+RUN apk add unzip
 RUN mkdir -p /opt/hlsp
 VOLUME [ "/opt/hlsp" ]
 RUN wget https://www.hls-proxy.com/downloads/ -O /var/tmp/hlsproxy.zip
