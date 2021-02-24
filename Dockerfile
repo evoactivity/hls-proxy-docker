@@ -14,8 +14,3 @@ RUN rm -rf /var/tmp/hlsproxy.zip
 RUN chmod +x /opt/hlsp/hls-proxy
 RUN /opt/hlsp/hls-proxy -address 0.0.0.0 -port 8085 -save -quit
 RUN /opt/hlsp/hls-proxy
-
-
-
-
-
