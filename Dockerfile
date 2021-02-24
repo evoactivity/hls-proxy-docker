@@ -1,13 +1,20 @@
-FROM amd64/ubuntu:latest
+FROM amd64/alpine:latest
 EXPOSE 8085
-
-RUN apt-get update
-RUN apt-get install -y wget
-RUN apt-get install -y unzip
+RUN apk update
+RUN apk install -y wget
+RUN apk install -y unzip
 RUN mkdir -p /opt/hlsp
 VOLUME [ "/opt/hlsp" ]
-COPY index.sh .
-ENTRYPOINT [ "./index.sh" ]
+RUN wget https://www.hls-proxy.com/downloads/ -O /var/tmp/hlsproxy.zip
+RUN mkdir -p /var/tmp/hlsp/
+RUN unzip -o /var/tmp/hlsproxy.zip -d /var/tmp/hlsp/
+RUN cp /var/tmp/hlsp/* /opt/hlsp
+RUN rm -rf /var/tmp/hlsp/
+RUN rm -rf /var/tmp/hlsproxy.zip
+RUN chmod +x /opt/hlsp/hls-proxy
+RUN /opt/hlsp/hls-proxy -address 0.0.0.0 -port 8085 -save -quit
+RUN /opt/hlsp/hls-proxy
+
 
 
 
