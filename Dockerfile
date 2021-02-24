@@ -5,7 +5,8 @@ RUN apk add wget
 RUN apk add unzip
 RUN mkdir -p /opt/hlsp
 VOLUME [ "/opt/hlsp" ]
-RUN wget https://www.hls-proxy.com/downloads/ -O /var/tmp/hlsproxy.zip
+COPY checkforhls-proxy-version-compatiblity.sh .
+ENTRYPOINT [ "./checkforhls-proxy-version-compatiblity.sh" ]
 RUN mkdir -p /var/tmp/hlsp/
 RUN unzip -o /var/tmp/hlsproxy.zip -d /var/tmp/hlsp/
 RUN cp /var/tmp/hlsp/* /opt/hlsp
